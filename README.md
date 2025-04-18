@@ -1,6 +1,6 @@
 # Take This Vimeo
 
-A video uploading and streaming service built with .NET Core and React, supporting both local storage and AWS S3 integration.
+A video uploading and streaming service built with .NET Core and React, supporting local storage, AWS S3 integration, and Vimeo platform integration.
 
 ## Features
 
@@ -10,6 +10,7 @@ A video uploading and streaming service built with .NET Core and React, supporti
 - Multiple storage options:
   - Local file system storage
   - AWS S3 integration
+  - Vimeo platform integration (coming soon)
 - RESTful API endpoints
 - Swagger/OpenAPI documentation
 - Secure HTTPS support
@@ -19,6 +20,7 @@ A video uploading and streaming service built with .NET Core and React, supporti
 - .NET 7.0 or later
 - Node.js and npm (for React frontend)
 - AWS account (for S3 integration, optional)
+- Vimeo API credentials (for Vimeo integration, optional)
 
 ## Setup
 
@@ -37,6 +39,16 @@ A video uploading and streaming service built with .NET Core and React, supporti
        "AWS": {
          "Region": "your-aws-region",
          "BucketName": "your-s3-bucket-name"
+       }
+     }
+     ```
+   - For Vimeo integration: Update `appsettings.json` with your Vimeo credentials:
+     ```json
+     {
+       "Vimeo": {
+         "ClientId": "your-client-id",
+         "ClientSecret": "your-client-secret",
+         "AccessToken": "your-access-token"
        }
      }
      ```
@@ -61,6 +73,11 @@ The server will start on `https://localhost:5001` with Swagger documentation ava
 - **POST** `/video/upload/form-data/s3`
   - Accepts multipart/form-data
   - Returns: `{ message: string, fileName: string }`
+
+#### Vimeo Platform (Coming Soon)
+- **POST** `/video/upload/form-data/vimeo`
+  - Accepts multipart/form-data
+  - Returns: `{ message: string, videoId: string, uri: string }`
 
 ## Development
 
