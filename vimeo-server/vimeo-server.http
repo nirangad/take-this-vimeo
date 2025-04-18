@@ -1,0 +1,6 @@
+@vimeo_server_HostAddress = http://localhost:5260
+
+GET {{vimeo_server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
